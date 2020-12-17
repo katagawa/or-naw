@@ -1,0 +1,21 @@
+{
+  "name": "or-naw",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "coverage": "nyc npm run test",
+    "lint": "eslint -c .eslintrc.json *.js test",
+    "test": "npm run lint && mocha"
+  },
+  "devDependencies": {
+    "chai": "",
+    "eslint": "",
+    "eslint-config-standard": "",
+    "eslint-plugin-import": "",
+    "eslint-plugin-node": "",
+    "eslint-plugin-promise": "",
+    "mocha": "",
+    "nyc": ""
+  }
+}
