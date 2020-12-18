@@ -138,6 +138,27 @@
    *     messages. Defaults to "Argument"
    * @static
    * @throws {ReferenceError} if `o` is undefined
+   * @throws {TypeError} if `o` is not an `Error`
+   */
+  OrNaw.errorOrNaw = function (err, label) {
+    OrNaw.definedOrNaw(err)
+
+    if (!OrNaw.isString(label)) {
+      label = 'Argument'
+    }
+
+    if (!OrNaw.isError(err)) {
+      /* THROWS */
+      throw new TypeError(label + 'is not an Error')
+    }
+  }
+
+  /**
+   * @param {?*} [o] The variable to test
+   * @param {string} [label] Display name for the variable, to be shown in error
+   *     messages. Defaults to "Argument"
+   * @static
+   * @throws {ReferenceError} if `o` is undefined
    * @throws {TypeError} if `o` is not a `Function`
    */
   OrNaw.functionOrNaw = function (o, label) {
@@ -195,7 +216,16 @@
 
   /**
    * @param {?*} [o] The variable to test
-   * @returns `true` if `f` is a `function`. Otherwise, returns `false`.
+   * @returns `true` if `f` is an `Error`. Otherwise, returns `false`.
+   * @static
+   */
+  OrNaw.isError = function (o) {
+    return (o instanceof Error)
+  }
+
+  /**
+   * @param {?*} [o] The variable to test
+   * @returns `true` if `o` is a `function`. Otherwise, returns `false`.
    * @static
    */
   OrNaw.isFunction = function (o) {

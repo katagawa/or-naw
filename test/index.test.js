@@ -76,6 +76,20 @@ describe('OrNaw', function () {
     })
   })
 
+  describe('#errorOrNaw', function () {
+    it('should throw a ReferenceError', function () {
+      expect(A.errorOrNaw.bind(A)).to.throw(ReferenceError)
+    })
+
+    it('should throw a TypeError', function () {
+      expect(A.errorOrNaw.bind(A, 1, 'foo')).to.throw(TypeError)
+    })
+
+    it('should successfully execute', function () {
+      expect(A.errorOrNaw(new Error())).to.equal(undefined)
+    })
+  })
+
   describe('#functionOrNaw', function () {
     it('should throw a ReferenceError', function () {
       expect(A.functionOrNaw.bind(A)).to.throw(ReferenceError)
