@@ -76,6 +76,32 @@ describe('OrNaw', function () {
     })
   })
 
+  describe('#elementOrDocumentOrNaw', function () {
+    it('should throw a ReferenceError', function () {
+      expect(A.elementOrDocumentOrNaw.bind(A)).to.throw(ReferenceError)
+    })
+
+    it('should throw a TypeError', function () {
+      expect(A.elementOrDocumentOrNaw.bind(A, 1, 'foo')).to.throw(TypeError)
+    })
+
+    it('should successfully execute', function () {
+      const Element = function () {
+        this.nodeType = 1
+      }
+
+      expect(A.elementOrDocumentOrNaw(new Element())).to.equal(undefined)
+    })
+
+    it('should successfully execute', function () {
+      const Document = function () {
+        this.nodeType = 9
+      }
+
+      expect(A.elementOrDocumentOrNaw(new Document())).to.equal(undefined)
+    })
+  })
+
   describe('#errorOrNaw', function () {
     it('should throw a ReferenceError', function () {
       expect(A.errorOrNaw.bind(A)).to.throw(ReferenceError)

@@ -128,7 +128,27 @@
     }
 
     if (!OrNaw.isElement(o)) {
-      throw new TypeError(label + ' is not a Element')
+      throw new TypeError(label + ' is not an Element')
+    }
+  }
+
+  /**
+   * @param {?*} [o] The variable to test
+   * @param {string} [label] Display name for the variable, to be shown in error
+   *     messages. Defaults to "Argument"
+   * @static
+   * @throws {ReferenceError} if `o` is undefined
+   * @throws {TypeError} if `o` is not a `Element`
+   */
+  OrNaw.elementOrDocumentOrNaw = function (o, label) {
+    OrNaw.definedOrNaw(o, label)
+
+    if (!OrNaw.isString(label)) {
+      label = 'Argument'
+    }
+
+    if (!OrNaw.isElementOrDocument(o)) {
+      throw new TypeError(label + ' is not an Element or Document')
     }
   }
 
@@ -211,6 +231,20 @@
       OrNaw.isObject(o) &&
       Number.isFinite(o.nodeType) &&
       (o.nodeType === 1)
+    )
+  }
+
+  /**
+   * @param {?*} [o] The variable to test
+   * @returns `true` if `o` is a DOM `Element` or `Document` node. Otherwise,
+   * returns `false`.
+   * @static
+   */
+  OrNaw.isElementOrDocument = function (o) {
+    return (
+      OrNaw.isObject(o) &&
+      Number.isFinite(o.nodeType) &&
+      ((o.nodeType === 1) || (o.nodeType === 9))
     )
   }
 
