@@ -36,7 +36,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -56,7 +56,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -76,7 +76,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -96,7 +96,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -113,7 +113,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -133,7 +133,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -153,28 +153,28 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
    * @throws {ReferenceError} if `o` is undefined
    * @throws {TypeError} if `o` is not an `Error`
    */
-  OrNaw.errorOrNaw = function (err, label) {
-    OrNaw.definedOrNaw(err)
+  OrNaw.errorOrNaw = function (o, label) {
+    OrNaw.definedOrNaw(o)
 
     if (!OrNaw.isString(label)) {
       label = 'Argument'
     }
 
-    if (!OrNaw.isError(err)) {
+    if (!OrNaw.isError(o)) {
       /* THROWS */
       throw new TypeError(label + 'is not an Error')
     }
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -194,7 +194,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @returns `true` if `o` is of type `boolean`. Otherwise, returns `false`.
    * @static
    */
@@ -203,7 +203,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @returns `true` if `o` is an instance of `Date`. Otherwise, returns
    *     `false`.
    * @static
@@ -213,7 +213,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @returns `true` if `o` is defined. Otherwise, returns `false`.
    * @static
    */
@@ -222,7 +222,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @returns `true` if `o` is a DOM `Element`. Otherwise, returns `false`.
    * @static
    */
@@ -235,7 +235,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @returns `true` if `o` is a DOM `Element` or `Document` node. Otherwise,
    * returns `false`.
    * @static
@@ -249,8 +249,8 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
-   * @returns `true` if `f` is an `Error`. Otherwise, returns `false`.
+   * @param {*} [o] The variable to test
+   * @returns `true` if `o` is an `Error`. Otherwise, returns `false`.
    * @static
    */
   OrNaw.isError = function (o) {
@@ -258,7 +258,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @returns `true` if `o` is a `function`. Otherwise, returns `false`.
    * @static
    */
@@ -267,8 +267,8 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
-   * @returns `true` if `o` is an `object` and non-`null`. Otherwise, returns
+   * @param {*} [o] The variable to test
+   * @returns `true` if `o` is an `object` and not `null`. Otherwise, returns
    *     `false`.
    * @static
    */
@@ -277,8 +277,8 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
-   * @returns `true` if `s` is a `string`. Otherwise, returns `false`.
+   * @param {*} [o] The variable to test
+   * @returns `true` if `o` is a `string`. Otherwise, returns `false`.
    * @static
    */
   OrNaw.isString = function (o) {
@@ -286,7 +286,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @returns `true` if `o` is undefined. Otherwise, returns `false`.
    * @static
    */
@@ -295,7 +295,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -315,7 +315,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -340,7 +340,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
@@ -360,7 +360,7 @@
   }
 
   /**
-   * @param {?*} [o] The variable to test
+   * @param {*} [o] The variable to test
    * @param {string} [label] Display name for the variable, to be shown in error
    *     messages. Defaults to "Argument"
    * @static
